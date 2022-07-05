@@ -1,4 +1,3 @@
-docker pull michaelschmidtvumc/curation-serology
 docker run \
     -it \
     --rm \

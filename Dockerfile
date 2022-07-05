@@ -1,4 +1,4 @@
-FROM curation-base:latest AS base
+FROM michaelschmidtvumc/curation-base:latest AS base
 
 #* Copy project files
 COPY common ${PROJECT_ROOT}/common

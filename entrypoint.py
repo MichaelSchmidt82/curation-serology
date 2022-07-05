@@ -60,7 +60,6 @@ def create_serology_snapshot(bq_client: BigQueryClient) -> str:
     :return: str: Identifies the created snapshot serology dataset
     """
 
-    import pdb; pdb.set_trace()
     dataset_id = f'C{os.environ["RELEASE_TAG"]}_antibody_quest'
     dataset = Dataset(f'{bq_client.project}.{dataset_id}')
     dataset.description = (f'Source dataset: {os.environ["SRC_SEROLOGY_DATASET_ID"]}'
@@ -77,7 +76,6 @@ def main():
     # get credentials and create client
     # impersonation_creds = auth.get_impersonation_credentials(
     #     os.environ['RUN_AS_EMAIL'], consts.CDR_SCOPES)
-
 
     bq_client = BigQueryClient(os.environ['PROJECT_ID'])
     #bq_client = BigQueryClient(os.environ['PROJECT_ID'], credentials=impersonation_creds)
