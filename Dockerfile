@@ -3,6 +3,7 @@ FROM michaelschmidtvumc/curation-base:latest AS base
 
 ENV PROJECT_NAME="serology"
 ENV PROJECT_ROOT="/project/${PROJECT_NAME}"
+ENV PROJECT_SECRETS="/secrets"
 
 #* Copy project files
 RUN git clone \
@@ -13,8 +14,8 @@ RUN git clone \
 
 #? For security, the host's GAC is passed via a volume flag as the file
 #? `credentials.json`.  It should be marked as is read-only.
-ENV GOOGLE_APPLICATION_CREDENTIALS="${PROJECT_ROOT}/credentials.json"
+ENV GOOGLE_APPLICATION_CREDENTIALS="${PROJECT_SECRETS}/credentials.json"
 ENV ISSUE_NUMBER='DC2263'
 
 # ENTRYPOINT [ "python" ]
-ENTRYPOINT [ "sh", "-c", "python ${PROJECT_ROOT}/entrypoint.py" ]
+# ENTRYPOINT [ "sh", "-c", "python ${PROJECT_ROOT}/entrypoint.py" ]
