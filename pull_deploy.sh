@@ -1,5 +1,7 @@
+docker pull michaelschmidtvumc/curation-serology:latest
 docker run \
     -it \
     --rm \
-    -v $GOOGLE_APPLICATION_CREDENTIALS:/project/curation/credentials.json:ro \
+    --env-file=environment \
+    -v $GOOGLE_APPLICATION_CREDENTIALS:/secrets/credentials.json:ro \
     michaelschmidtvumc/curation-serology
